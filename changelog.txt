@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-08-27
+  Changes:
+    - Initial public release.
+    - Gleba agricultural-tower crops can grow on any Gleba land tile.
+    - Hand-placeable flora can be placed on any planetary surface.
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 2026-08-27
   Changes:

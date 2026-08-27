@@ -1,0 +1,53 @@
+name: Package Factorio mod
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Create Mod Portal archive
+        id: package
+        shell: bash
+        run: |
+          set -euo pipefail
+          name=$(jq -r '.name' info.json)
+          version=$(jq -r '.version' info.json)
+          package="${name}_${version}"
+
+          mkdir -p dist
+          git archive --format=tar --prefix="${package}/" HEAD | tar -xf - -C dist
+          (
+            cd dist
+            zip -r "../${package}.zip" "${package}"
+          )
+          echo "archive=${package}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Upload Mod Portal archive
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: ${{ steps.package.outputs.archive }}
+          path: ${{ steps.package.outputs.archive }}
+          if-no-files-found: error
+
+      - name: Publish GitHub Release
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/')
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" "${{ steps.package.outputs.archive }}" --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" "${{ steps.package.outputs.archive }}" \
+              --title "$GITHUB_REF_NAME" --generate-notes
+          fi

@@ -1,19 +1,6 @@
 local seconds = 60
 local growth_ticks = 5 * seconds * 60
 
-local gleba_tiles = {
-  "natural-yumako-soil", "natural-jellynut-soil", "lowland-brown-blubber", "lowland-olive-blubber",
-  "lowland-olive-blubber-2", "lowland-olive-blubber-3", "lowland-pale-green", "lowland-cream-cauliflower",
-  "lowland-cream-cauliflower-2", "lowland-dead-skin", "lowland-dead-skin-2", "lowland-cream-red",
-  "lowland-red-vein", "lowland-red-vein-2", "lowland-red-vein-3", "lowland-red-vein-4", "lowland-red-vein-dead",
-  "lowland-red-infection", "midland-turquoise-bark", "midland-turquoise-bark-2", "midland-cracked-lichen",
-  "midland-cracked-lichen-dull", "midland-cracked-lichen-dark", "midland-yellow-crust", "midland-yellow-crust-2",
-  "midland-yellow-crust-3", "midland-yellow-crust-4", "highland-dark-rock", "highland-dark-rock-2", "highland-yellow-rock",
-  "pit-rock", "wetland-yumako", "wetland-jellynut", "wetland-blue-slime", "wetland-light-green-slime",
-  "wetland-green-slime", "wetland-light-dead-skin", "wetland-dead-skin", "wetland-pink-tentacle", "wetland-red-tentacle",
-  "gleba-deep-lake"
-}
-
 -- Gleba plants each get their own seed, tinted so the 10 seed items stay distinguishable
 -- at a glance. Nauvis trees have no seed of their own: they reuse the vanilla tree-seed.
 local gleba_flora = {
@@ -35,7 +22,6 @@ local nauvis_trees = {
 }
 
 local gleba_pressure = 2000
-local nauvis_pressure = 1000
 
 local new_prototypes = {}
 
@@ -86,7 +72,6 @@ local function register_decoration(source_name, planet, ingredient)
   local decoration = table.deepcopy(source)
   decoration.name = name
   decoration.localised_name = label
-  decoration.surface_conditions = {{property = "pressure", min = planet.pressure, max = planet.pressure}}
   decoration.autoplace = {probability_expression = 0}
   decoration.minable = {mining_time = 0.2, result = name}
   decoration.dying_explosion = nil
@@ -134,7 +119,7 @@ local function register_gleba_crop(entry)
   crop.type = "plant"
   crop.name = crop_name
   crop.localised_name = {"entity-name.native-flora-crop", {"entity-name." .. entry.source}}
-  crop.autoplace = {probability_expression = 0, tile_restriction = gleba_tiles}
+  crop.autoplace = {probability_expression = 0}
   crop.surface_conditions = {{property = "pressure", min = gleba_pressure, max = gleba_pressure}}
   crop.growth_ticks = growth_ticks
   crop.harvest_emissions = {spores = 1}
@@ -193,8 +178,8 @@ local function register_gleba_crop(entry)
   table.insert(minable.results, {type = "item", name = seed_name, amount = 1})
 end
 
-local gleba = {pressure = gleba_pressure, decoration_subgroup = "native-flora-gleba"}
-local nauvis = {pressure = nauvis_pressure, decoration_subgroup = "native-flora-nauvis"}
+local gleba = {decoration_subgroup = "native-flora-gleba"}
+local nauvis = {decoration_subgroup = "native-flora-nauvis"}
 
 for _, entry in ipairs(gleba_flora) do
   if has_normals(data.raw.tree[entry.source]) then
