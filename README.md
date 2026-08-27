@@ -54,7 +54,7 @@ No custom Nauvis seeds. All decoration recipes unlock with **Biochamber** tech. 
 
 ## Release
 
-Tag, e.g. `v1.0.0` → workflow → Mod Portal ZIP `native-flora-cultivation_1.0.0.zip` → matching GitHub Release.
+Tag, e.g. `v1.0.3` → workflow → Mod Portal ZIP `native-flora-cultivation_1.0.3.zip` → matching GitHub Release.
 
 ## License
 
