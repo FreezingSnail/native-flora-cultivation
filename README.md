@@ -1,52 +1,60 @@
 # Native Flora Cultivation
 
-Factorio 2.1 / Space Age mod for renewable, hand-placeable native Gleba flora and Nauvis-tree decorations.
+Factorio 2.1 + Space Age. Renewable, hand-placeable Gleba flora + Nauvis trees.
 
-## Gameplay
+## Loop
 
-Harvest wild Gleba flora for a distinct tinted seed, multiply it with an agricultural tower, then culture it into a placeable decoration. Nauvis tree decorations use the vanilla `tree-seed`.
+Wild Gleba flora → tinted seed. Ag tower seed → crop. Crop → 2 seeds. Biochamber seed → placable.
 
-The crafting menu separates **Gleba Seeds**, **Gleba Plants**, and **Nauvis Trees** under **Native Flora Cultivation**.
+Menu: **Native Flora Cultivation** → **Gleba Seeds**, **Gleba Plants**, **Nauvis Trees**.
 
-## Recipes and yields
+## Added Gleba flora
 
-### Gleba seed loop
-
-| Step | Machine | Input | Output |
+| Flora | Wild drop | Ag tower | Biochamber, 5 s |
 | --- | --- | --- | --- |
-| Find a seed | Mine wild Gleba flora | Native plant | 1 matching tinted seed |
-| Multiply a seed | Agricultural tower, any Gleba land tile | 1 matching seed | Mature matching crop |
-| Harvest crop | Mine mature crop | Mature matching crop | 2 matching seeds |
-| Create placable | Biochamber, 5 s | 1 matching seed | 1 matching Gleba decoration |
+| Cuttlepop | Cuttlepop seed | Cuttlepop seed → Cuttlepop crop → 2 Cuttlepop seeds | Cuttlepop seed → Cuttlepop placable |
+| Slipstack | Slipstack seed | Slipstack seed → Slipstack crop → 2 Slipstack seeds | Slipstack seed → Slipstack placable |
+| Funneltrunk | Funneltrunk seed | Funneltrunk seed → Funneltrunk crop → 2 Funneltrunk seeds | Funneltrunk seed → Funneltrunk placable |
+| Hairy clubnub | Hairy clubnub seed | Hairy clubnub seed → Hairy clubnub crop → 2 Hairy clubnub seeds | Hairy clubnub seed → Hairy clubnub placable |
+| Teflilly | Teflilly seed | Teflilly seed → Teflilly crop → 2 Teflilly seeds | Teflilly seed → Teflilly placable |
+| Lickmaw | Lickmaw seed | Lickmaw seed → Lickmaw crop → 2 Lickmaw seeds | Lickmaw seed → Lickmaw placable |
+| Stingfrond | Stingfrond seed | Stingfrond seed → Stingfrond crop → 2 Stingfrond seeds | Stingfrond seed → Stingfrond placable |
+| Boompuff | Boompuff seed | Boompuff seed → Boompuff crop → 2 Boompuff seeds | Boompuff seed → Boompuff placable |
+| Sunnycomb | Sunnycomb seed | Sunnycomb seed → Sunnycomb crop → 2 Sunnycomb seeds | Sunnycomb seed → Sunnycomb placable |
+| Water cane | Water cane seed | Water cane seed → Water cane crop → 2 Water cane seeds | Water cane seed → Water cane placable |
 
-Each of the ten Gleba flora types has its own seed and crop. Seeds can be planted only on Gleba; decoration placement has no planetary surface restriction.
+Seeds: Gleba-only. Crops: any Gleba land tile. Placables: any planet/surface. Every wild plant drops 1 matching seed.
 
-### Nauvis tree decorations
+## Added Nauvis trees
 
-| Machine | Input | Output |
-| --- | --- | --- |
-| Biochamber, 5 s | 1 vanilla `tree-seed` | 1 selected Nauvis-tree decoration |
+| Tree | Biochamber recipe, 5 s |
+| --- | --- |
+| Tree 01 | 1 vanilla `tree-seed` → Tree 01 placable |
+| Tree 02 | 1 vanilla `tree-seed` → Tree 02 placable |
+| Tree 03 | 1 vanilla `tree-seed` → Tree 03 placable |
+| Tree 04 | 1 vanilla `tree-seed` → Tree 04 placable |
+| Tree 05 | 1 vanilla `tree-seed` → Tree 05 placable |
+| Tree 06 | 1 vanilla `tree-seed` → Tree 06 placable |
+| Tree 07 | 1 vanilla `tree-seed` → Tree 07 placable |
+| Tree 08 | 1 vanilla `tree-seed` → Tree 08 placable |
+| Tree 09 | 1 vanilla `tree-seed` → Tree 09 placable |
 
-Every Nauvis tree variant can be made from the same vanilla `tree-seed`; the mod adds no duplicate tree-seed items or recipes.
+No custom Nauvis seeds. All decoration recipes unlock with **Biochamber** tech. Mine any placed decoration → same item.
 
-### Decorations
-
-Placed decorations mine back into themselves, allowing them to be moved without loss. All decoration recipes unlock with **Biochamber** technology.
-
-## Requirements
+## Req
 
 - Factorio 2.1
 - Space Age
 
 ## Install
 
-1. Download the release ZIP.
-2. Place it in Factorio's `mods` directory without extracting it.
-3. Enable **Native Flora Cultivation** in the mod manager.
+1. Download release ZIP.
+2. Put ZIP in Factorio `mods` dir. Do not extract.
+3. Enable **Native Flora Cultivation**.
 
-## Releases
+## Release
 
-Pushing a tag such as `v1.0.0` runs the packaging workflow. It creates a Mod Portal-compatible archive named from `info.json` (for example, `native-flora-cultivation_1.0.0.zip`) and attaches it to the matching GitHub Release.
+Tag, e.g. `v1.0.0` → workflow → Mod Portal ZIP `native-flora-cultivation_1.0.0.zip` → matching GitHub Release.
 
 ## License
 
