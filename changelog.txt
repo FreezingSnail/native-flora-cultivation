@@ -1,0 +1,20 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2026-08-27
+  Changes:
+    - Gleba flora now drop distinct tinted seeds; agricultural towers multiply those seeds.
+    - Removed duplicate seed recipes and items for Nauvis trees; vanilla tree seeds remain the sole tree seed.
+    - Moved hand-placeable plants into separate Gleba and Nauvis subgroups.
+    - Moved hand-placeable plant recipes from cryogenic plants to biochambers.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 2026-08-27
+  Bugfixes:
+    - Skipped source trees whose variations ship without normal maps (tree-06), which crashed the engine while building the plant growth sprite table.
+  Changes:
+    - Moved seeds and decorations out of vanilla intermediates into a dedicated Native Flora Cultivation group, with separate seed and decoration rows.
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 2026-08-27
+  Bugfixes:
+    - Added surface metadata to converted plant sprites, preventing a graphical startup crash.

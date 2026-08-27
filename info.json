@@ -1,0 +1,9 @@
+{
+  "name": "native-flora-cultivation",
+  "version": "0.2.0",
+  "title": "Native Flora Cultivation",
+  "author": "FreezingSnail",
+  "factorio_version": "2.1",
+  "dependencies": ["base >= 2.0.0", "space-age >= 2.0.0"],
+  "description": "Multiply native Gleba flora seeds with agricultural towers, then use biochambers to culture hand-placeable Gleba plants and Nauvis trees."
+}
